@@ -1,0 +1,32 @@
+<h1>Products</h1>
+
+<%= link_to "New Product", new_product_path %>
+<%= link_to "New Product Image", new_productimage_path %>
+<%= link_to "New ID proof",  new_idproof_path%>
+
+
+<ul>
+  <% @products.each do |product| %>
+    <li>
+  <strong>name: </strong>
+  <%= product.name %><br>
+
+  <strong>description:</strong>
+  <%= product.description %><br>
+
+   <strong>price: </strong>
+  <%= product.price %><br>
+
+    <strong>category: </strong>
+  <%= product.category_id %><br>
+
+    <strong>status:  </strong>
+  <%= product.status %><br>
+
+   <%= link_to "show", product   %>
+
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New Product", new_product_path %>

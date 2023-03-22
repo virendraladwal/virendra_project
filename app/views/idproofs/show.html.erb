@@ -1,0 +1,20 @@
+
+  <strong>document </strong>
+  <%= @idproofs.document %><br>
+
+  <strong>status</strong>
+  <%= @idproofs.status %><br>
+
+   <strong>merchant_id </strong>
+  <%= @idproofs.merchant_id %><br>
+
+
+<ul>
+  <li><%= link_to "Edit", edit_idproof_path(@idproofs) %></li>
+
+   <li><%= link_to "Destroy", idproof_path(@idproofs), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+ </ul>
+    

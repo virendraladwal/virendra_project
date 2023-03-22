@@ -1,0 +1,22 @@
+<%= form_for  @idproof do |form| %>
+ <div>
+  <div>
+    <%= form.label :document %><br>
+    <%= form.file_field :document %><br>
+  </div>
+
+  <div>
+    <%= form.label :status, style: "display: block" %>
+    <%= form.select :status, [[ 'pending', 'pending'], ['accept','accept'], ['reject','reject']] %><br>
+  </div>
+  </div>
+
+  
+
+
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+

@@ -1,0 +1,21 @@
+<h1>Idproofs#index</h1>
+
+
+<ul>
+  <% @idproofs.each do |idproof| %>
+    <li>
+  <strong>document: </strong>
+  <%= idproof.document %><br>
+
+  <strong>status:</strong>
+  <%= idproof.status %><br>
+
+   <strong>merchant_id: </strong>
+  <%= idproof.merchant_id %><br>
+
+   <%= link_to "show", idproof  %>
+
+    </li>
+  <% end %>
+</ul>
+

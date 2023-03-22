@@ -1,0 +1,34 @@
+<%= form_for  @product do |form| %>
+ <div>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %><br>
+  </div>
+
+  <div>
+    <%= form.label :description %><br>
+    <%= form.text_field :description %><br>
+  </div>
+
+  <div>
+    <%= form.label :price %><br>
+    <%= form.number_field :price %><br>
+  </div>
+
+  <div>
+    <%= form.label :category %><br>
+    <%= form.collection_select  :category_id, Category.all, :id, :categoryname %><br>
+  </div>
+
+  <div>
+    <%= form.label :status %><br>
+    <%= form.text_field :status %><br>
+  </div>
+ </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+
+

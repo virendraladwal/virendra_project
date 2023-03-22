@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Virendra</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+  
+   <p class="notice"><%= notice %></p>
+   <p class="alert"><%= alert %></p>
+
+  <body>
+   <strong><%= link_to "HOME", root_path %></strong>
+   <p class="navbar-text float-right">
+<% if merchant_signed_in? %>
+  Logged in as <strong><%= current_merchant.email %></strong>.
+  <%= link_to "Edit profile", edit_merchant_registration_path, class: "navbar-link" %> |
+  <%= link_to "Logout", destroy_merchant_session_path, method: :delete, class: "navbar-link"  %>
+<% else %>
+  <%= link_to "Sign up", new_merchant_registration_path, class: "navbar-link"  %> |
+  <%= link_to "Login", new_merchant_session_path, class: "navbar-link"  %>
+<% end %>
+</p>
+
+    <%= yield %>
+  </body>
+</html>

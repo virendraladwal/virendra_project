@@ -1,0 +1,27 @@
+
+  <strong>name: </strong>
+  <%= @product.name %><br>
+
+  <strong>description</strong>
+  <%= @product.description %><br>
+
+   <strong>price </strong>
+  <%= @product.price %><br>
+
+    <strong>category </strong>
+    <%= @product.category_id %><br>
+
+    <strong>status </strong>  
+    <%= @product.status %><br>
+  
+<%# <strong>Images:</strong><br>
+<% @product.productimages.each do |productimage| %>
+  <%# <%= image_tag productimage.image.url, size: 15*15 %> 
+<%# <% end %> 
+  <ul>
+  <li><%= link_to "Edit", edit_product_path(@product) %></li>
+  <li><%= link_to "Destroy", product_path(@product), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+  </ul>
