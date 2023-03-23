@@ -1,16 +1,5 @@
-<%= form_with(model: productimage) do |form| %>
-  <% if productimage.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(productimage.errors.count, "error") %> prohibited this productimage from being saved:</h2>
-
-      <ul>
-        <% productimage.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_with model: [ @product, productimage ] do |form| %>
+ 
   <div>
     <%= form.label :image, style: "display: block" %>
     <%= form.file_field :image %>

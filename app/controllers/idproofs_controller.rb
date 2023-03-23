@@ -39,7 +39,7 @@ class IdproofsController < ApplicationController
   def destroy
     @idproof = Idproof.find(params[:id])
     @idproof.destroy
-
+    
     redirect_to root_path, status: :see_other
   end
 

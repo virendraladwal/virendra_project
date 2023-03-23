@@ -1,7 +1,37 @@
+<%# new imoliment %>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+​
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+ 
+<%# ​code %>
+<%= render "code"%>
+<%# ​style css %>
+<%= render "style"%>
+
+
+
+
+                   
+
+
+
+
+
+
+
+
+
+
+
+<%# <last> %>
+
 <h1>Products</h1>
 
 <%= link_to "New Product", new_product_path %>
-<%= link_to "New Product Image", new_productimage_path %>
+<%#= link_to "New Product Image", new_productimage_path %>
 <%= link_to "New ID proof",  new_idproof_path%>
 
 
@@ -14,19 +44,26 @@
   <strong>description:</strong>
   <%= product.description %><br>
 
-   <strong>price: </strong>
+  <strong>price: </strong>
   <%= product.price %><br>
 
-    <strong>category: </strong>
-  <%= product.category_id %><br>
+  <strong>category: </strong>
+  <%= Category.find(product.category_id).categoryname %><br>
 
-    <strong>status:  </strong>
+  <strong>status:  </strong>
   <%= product.status %><br>
 
-   <%= link_to "show", product   %>
+  <%= link_to "show", product   %>
 
     </li>
   <% end %>
 </ul>
 
 <%= link_to "New Product", new_product_path %>
+
+
+
+
+
+​
+

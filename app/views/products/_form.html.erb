@@ -19,10 +19,11 @@
     <%= form.label :category %><br>
     <%= form.collection_select  :category_id, Category.all, :id, :categoryname %><br>
   </div>
-
+   
+   
   <div>
     <%= form.label :status %><br>
-    <%= form.text_field :status %><br>
+    <%= form.select :status, Product.statuses.keys %><br>     
   </div>
  </div>
   <div>

@@ -1,7 +1,11 @@
 <div id="<%= dom_id productimage %>">
   <p>
-    <strong>Image:</strong>
-    <%= productimage.image %>
+
+    <%#= productimage.image %>
   </p>
 
+  <strong>Images:</strong><br>
+    <%# @product.productimages.each do |productimage| %>
+    <%= image_tag productimage.image.url, size: 15*15 %>
+  <%#end %>
 </div>

@@ -9,15 +9,15 @@
   <%= @product.price %><br>
 
     <strong>category </strong>
-    <%= @product.category_id %><br>
+    <%= Category.find(@product.category_id).categoryname %><br>
 
     <strong>status </strong>  
     <%= @product.status %><br>
-  
-<%# <strong>Images:</strong><br>
-<% @product.productimages.each do |productimage| %>
-  <%# <%= image_tag productimage.image.url, size: 15*15 %> 
-<%# <% end %> 
+   
+   <%= render @product.productimages %>
+   <%= render "productimages/form" %>
+
+
   <ul>
   <li><%= link_to "Edit", edit_product_path(@product) %></li>
   <li><%= link_to "Destroy", product_path(@product), data: {

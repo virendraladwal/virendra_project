@@ -9,13 +9,16 @@ class ProductimagesController < ApplicationController
   end   
   def new
     @productimage = Productimage.new
-  end
+    @product = Product.find(params[:product_id])
+  end                          
 
   def create
     @productimage = Productimage.new(productimage_params)
-
+    
+    @productimage.product_id = params[:product_id]
+    @product = Product.find(params[:product_id])
     if @productimage.save
-      redirect_to @productimage
+      redirect_to products_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -24,13 +27,14 @@ class ProductimagesController < ApplicationController
   
   def edit
     @productimage = Productimage.find(params[:id])
+    @product = Product.find(params[:product_id])
   end
 
   def update
     @productimage = Productimage.find(params[:id])
 
     if @productimage.update(productimage_params)
-      redirect_to @productimage
+      redirect_to product_productimage_url
     else
       render :edit, status: :unprocessable_entity
     end
@@ -48,7 +52,7 @@ class ProductimagesController < ApplicationController
   private
 
     def productimage_params
-      params.require(:productimage).permit(:image)
+      params.require(:productimage).permit(:image, :product_id)
     end
 
 end

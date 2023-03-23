@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'idproofs/index'
   get 'idproof/index'
   resources :categories
-  resources :productimages
+  # resources :productimages
   resources :idproofs 
   devise_for :merchants
   #  root to: "migrate#index"
@@ -13,5 +13,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "products#index"
-  resources :products
+  resources :products do
+    resources :productimages
+  end
+
 end
