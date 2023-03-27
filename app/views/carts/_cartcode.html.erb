@@ -1,0 +1,77 @@
+<link
+  href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+  rel="stylesheet"
+  id="bootstrap-css"
+/>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+
+<body>
+  <div class="container wrapper">
+    <div class="row cart-body">
+      <form class="form-horizontal" method="post" action="">
+        <div
+          class=""
+        >
+          <!--REVIEW ORDER-->
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              Review Order
+            </div>
+            <div class="panel-body">
+              <div class="form-group">
+
+                <% @carts.each do |cart| %>
+                <div class="col-sm-3 col-xs-3">
+                  <img
+                    class="img-responsive"
+                    src="<%=cart.product.productimages.first.image  if cart.product.productimages.any?%>"width="100px" height="70px"
+                  />
+                </div>
+          
+                <div class="col-sm-6 col-xs-6">
+                  <div class="col-xs-12"><%= cart.product.name %></div>
+                  <a href="" >
+                  <div class="col-xs-12">
+                    <small>Quantity:<span>1</span></small>
+                  </div>
+                </div>
+                <div class="col-sm-3 col-xs-3 text-right">
+                  <h6><span>$</span><%= cart.product.price %></h6>
+                </div>
+                <div>
+                 <%= link_to "Order|  ", order_cart_path(cart) %>
+                  <%= link_to "wishlist|", wishlist_product_path(cart)  %> 
+                  <%= link_to "Destroy this cart|", "/carts/#{cart.id }/remove_from_carts" %>
+                 </div>
+              
+              <%# </div> %>
+              <div class="form-group"><hr /></div>             
+                <% end %>
+                <div class="col-xs-12">
+                  <small>Shipping</small>
+                  <div class="pull-right"><span>-</span></div>
+                </div>
+              <%# </div> %>
+              <div class="form-group"><hr /></div>
+              <div class="form-group">
+                <div class="col-xs-12">
+                  <strong>Order Total</strong>
+                  <div class="pull-right"><span>$</span><span>150.00</span></div>
+                </div>
+              </div>
+                <div class="form-group">
+                  <div class="col-xs-12">
+                    <div class="pull-right"><span></span><span><a class="btn-primary btn" href="">Checkout</a></span></div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+</body>

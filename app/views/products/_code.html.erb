@@ -1,36 +1,46 @@
-<div class="container">
-    <h3 class="h3">shopping Demo-1 </h3>
-    <div class="row">
+
+<%# ----------------style------------------- %>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<div class="conteiner">
+  <h3 class="h3">BUISNESS</h3>
+    <div class="row float-left ">
+       <% Product.all.each do |product| %>
         <div class="col-md-3 col-sm-6">
-            <div class="product-grid">
-                <div class="product-image">
-                    <a href="#">
-                        <img class="pic-1" src="https://www.w3schools.com/bootstrap4/img_avatar4.png">
-                        <img class="pic-2" src="https://www.w3schools.com/bootstrap4/img_avatar3.png">
-                    </a>
-                    <ul class="social">
-                        <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                        <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
-                    </ul>
-                    <span class="product-new-label">Sale</span>
-                    <span class="product-discount-label">20%</span>
-                </div>
-                <ul class="rating">
-                    <li class="fa fa-star"></li>
-                    <li class="fa fa-star"></li>
-                    <li class="fa fa-star"></li>
-                    <li class="fa fa-star"></li>
-                    <li class="fa fa-star disable"></li>
-                </ul>
-                <div class="product-content">
-                    <h3 class="title"><a href="#">Women's Blouse</a></h3>
-                    <div class="price">$16.00
-                        <span>$20.00</span>
-                    </div>
-                    <a class="add-to-cart" href="">+ Add To Cart</a>
-                </div>
+          <div class="product-grid">
+            <div class="product-image">
+              <a>
+                <img class="pic-1 " src="<%=product.productimages.first.image  if product.productimages.any?%>">
+                <%# <img class="pic-2" src="https://www.w3schools.com/bootstrap4/img_avatar3.png"> %>
+              </a>
+              <ul class="social">
+                <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+              </ul>
+              <span class="product-new-label">Sale</span>
+              <%# <span class="product-discount-label">20%</span> %>
             </div>
+             
+            <div class="product-content">
+              <h3 class="title">
+                <h6><a href="products/<%=product.id%>"><%=product.name%></a></h6>
+                <div class="price">₹<%= product.price %><br>
+                </a></h3>
+              <h6>Status:<%= product.status %></h6> 
+              <h6><b>Category:</b><%= Category.find(product.category_id).categoryname %></h6>
+            </div>
+            <a><%= product.description %></a><br>
+                    <%# <a class="add-to-cart" href="cartscvirendra=2">+ Add To Cart</a> %>
+                    <a class="add-to-cart" href="<%=cart_product_path(product.id)%>">+Add To Cart</a>
+
+
+          </div>
         </div>
+        <%# <p class="link_para "><%= link_to "Show this product", product %></p> 
+      </div>  
+  
+  
+     <% end %>
     </div>
 </div>

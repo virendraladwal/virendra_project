@@ -1,0 +1,92 @@
+<%# <p style="color: green"><%= notice %></p> %>
+
+<%# <h1>Wishlists</h1>
+
+<div id="wishlists"> %>
+  <%# @wishlists.each do |wishlist| %>
+    <%#= render wishlist %>
+    <%# <p> %>
+      <%#= link_to "Show this wishlist", wishlist %>
+    <%# </p> %>
+  <%# end %>
+<%# </div> %>
+<%#  %>
+<%#= link_to "New wishlist", new_wishlist_path %>
+
+
+
+<link
+  href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+  rel="stylesheet"
+  id="bootstrap-css"
+/>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+
+<body>
+  <div class="container wrapper">
+    <div class="row wishlist-body">
+      <form class="form-horizontal" method="post" action="">
+        <div
+          class=""
+        >
+          <!--REVIEW ORDER-->
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              Review Order
+            </div>
+            <div class="panel-body">
+              <div class="form-group">
+
+                <% @wishlists.each do |wishlist| %>
+                <div class="col-sm-3 col-xs-3">
+                  <img
+                    class="img-responsive"
+                    src="<%=wishlist.product.productimages.first.image  if wishlist.product.productimages.any?%>"width="100px" height="70px"
+                  />
+                </div>
+          
+                <div class="col-sm-6 col-xs-6">
+                  <div class="col-xs-12"><%= wishlist.product.name %></div>
+                  <a href="" >
+                  <div class="col-xs-12">
+                    <small>Quantity:<span>1</span></small>
+                  </div>
+                </div>
+                <div class="col-sm-3 col-xs-3 text-right">
+                  <h6><span>$</span><%= wishlist.product.price %></h6>
+                </div>
+                <div>
+                  <%= link_to "Destroy this wishlist|", "/wishlists/#{wishlist.id }/remove_from_wishlists" %>
+                 </div>
+              
+              <%# </div> %>
+              <div class="form-group"><hr /></div>             
+                <% end %>
+                <div class="col-xs-12">
+                  <small>Shipping</small>
+                  <div class="pull-right"><span>-</span></div>
+                </div>
+              <%# </div> %>
+              <div class="form-group"><hr /></div>
+              <div class="form-group">
+                <div class="col-xs-12">
+                  <strong>Order Total</strong>
+                  <div class="pull-right"><span>$</span><span>150.00</span></div>
+                </div>
+              </div>
+                <div class="form-group">
+                  <div class="col-xs-12">
+                    <div class="pull-right"><span></span><span><a class="btn-primary btn" href="">Checkout</a></span></div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+</body>

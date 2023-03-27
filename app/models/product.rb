@@ -6,7 +6,7 @@ class Product < ApplicationRecord
     validates  :status , presence: true
     belongs_to :category
     has_many :productimages
-
+    has_many :cart
 
     enum :status, { "Pending": "Pending", "Accept": "Accept", "Reject": "Reject"},_default: :"Pending"
-end 
+end     
